@@ -1,0 +1,16 @@
+# Dockerfile
+FROM python:3.10.11-bullseye
+
+# system package update & install
+RUN apt-get update && apt-get install -y wget
+
+# working directory
+WORKDIR /docker_gradio
+
+EXPOSE 7860
+
+# Python 설치
+RUN pip3 install jupyter notebook
+RUN pip3 install --user pandas numpy scipy tqdm gradio tiktoken openai transformers torch
+
+CMD ["python3", "gradio_test.py"]

@@ -1,0 +1,20 @@
+version: "3.7" # 파일 규격 버전 - docker-compose 파일의 버전을 관리하는것 (임의로)
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의 ( 컴포즈에서 컨테이너 : 서비스 )
+  db: # 서비스 명 - tabbarx,spacebar2로
+    image: mysql:latest # 사용할 이미지
+    restart: always #항상 돌아감 - 꺼져도 다시 시작 , -d(?)옵션과 동일
+    volumes: 
+      - ./data:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정) .-docker-compose 파일이 있는 폴더, var/lib/mysql 과 연결
+    container_name: mysql-dev # 컨테이너 이름 설정 
+    ports: #내부포트와 외부포트로 나누어져있음
+      - "3307:3306" # 접근 포트 설정 (호스트포트:컨테이너 내부)  <- 컨테이너 내부는 무조건 3306
+    environment: # -e 옵션
+      - MYSQL_ROOT_PASSWORD=Asd2004* # MYSQL 패스워드 설정 옵션 , 강력한 패스워드
+      - MYSQL_DATABASE=limdb #데이터베이스명
+      - MYSQL_USER=lim #강력한ID
+      - MYSQL_PASSWORD=Asd2004 #강력한패스워드
+      - TZ=Asia/Seoul #현재위치
+    command: # 명령어 실행
+      - --lower_case_table_names=1
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci 
