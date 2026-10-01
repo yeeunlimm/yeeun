@@ -22,20 +22,22 @@
 <path class="line" d="M680 330 V356 H340 V379"/><path class="line" d="M680 356 H1020 V379"/>
 <!-- parallel target model groups -->
 <rect class="panel" x="28" y="379" width="624" height="209" rx="10"/><text class="tag" x="52" y="406">05A · TOTAL POPULATION</text><text class="t" x="52" y="432">전체 생활인구 예측</text>
-<rect class="node" x="52" y="449" width="170" height="59" rx="6"/><text class="t" text-anchor="middle" x="137" y="473" font-size="13">기준선</text><text class="tiny" text-anchor="middle" x="137" y="493">같은 권역·요일·시간 중앙값</text>
-<rect class="node" x="245" y="449" width="170" height="59" rx="6"/><text class="t" text-anchor="middle" x="330" y="473" font-size="13">Poisson 회귀</text><text class="tiny" text-anchor="middle" x="330" y="493">HistGradientBoosting</text>
-<rect class="focal" x="438" y="449" width="190" height="59" rx="6"/><text class="t" text-anchor="middle" x="533" y="473" font-size="13">분위수 회귀 Q10·50·90</text><text class="tiny" text-anchor="middle" x="533" y="493">HistGradientBoosting · 범위 추정</text>
+<rect class="node" x="52" y="449" width="120" height="64" rx="6"/><text class="t" text-anchor="middle" x="112" y="475" font-size="13">기준선</text><text class="tiny" text-anchor="middle" x="112" y="497">요일·시간 중앙값</text><text class="tiny" text-anchor="middle" x="112" y="508">(ML 아님)</text>
+<rect class="node" x="190" y="449" width="210" height="64" rx="6"/><text class="t" text-anchor="middle" x="295" y="473" font-size="12">Poisson 평균 회귀</text><text class="tiny" text-anchor="middle" x="295" y="493">sklearn HistGradientBoostingRegressor</text><text class="tiny" text-anchor="middle" x="295" y="506">loss=poisson</text>
+<rect class="focal" x="420" y="449" width="208" height="64" rx="6"/><text class="t" text-anchor="middle" x="524" y="473" font-size="12">분위수 회귀 Q10·50·90</text><text class="tiny" text-anchor="middle" x="524" y="493">sklearn HistGradientBoostingRegressor</text><text class="tiny" text-anchor="middle" x="524" y="506">loss=quantile · quantile=0.1/0.5/0.9</text>
 <text class="s" x="52" y="546">학습 정답: 해당 권역의 시간대별 전체 생활인구</text><text class="tiny" x="52" y="567">팝업 입장객 수나 매출을 직접 예측하는 모델은 아닙니다.</text>
 <rect class="panel" x="708" y="379" width="624" height="209" rx="10"/><text class="tag" x="732" y="406">05B · AGE 20–39 POPULATION</text><text class="t" x="732" y="432">20~39세 생활인구 예측</text>
-<rect class="node" x="732" y="449" width="170" height="59" rx="6"/><text class="t" text-anchor="middle" x="817" y="473" font-size="13">기준선</text><text class="tiny" text-anchor="middle" x="817" y="493">같은 권역·요일·시간 중앙값</text>
-<rect class="node" x="925" y="449" width="170" height="59" rx="6"/><text class="t" text-anchor="middle" x="1010" y="473" font-size="13">Poisson 회귀</text><text class="tiny" text-anchor="middle" x="1010" y="493">HistGradientBoosting</text>
-<rect class="focal" x="1118" y="449" width="190" height="59" rx="6"/><text class="t" text-anchor="middle" x="1213" y="473" font-size="13">분위수 회귀 Q10·50·90</text><text class="tiny" text-anchor="middle" x="1213" y="493">HistGradientBoosting · 범위 추정</text>
+<rect class="node" x="732" y="449" width="120" height="64" rx="6"/><text class="t" text-anchor="middle" x="792" y="475" font-size="13">기준선</text><text class="tiny" text-anchor="middle" x="792" y="497">요일·시간 중앙값</text><text class="tiny" text-anchor="middle" x="792" y="508">(ML 아님)</text>
+<rect class="node" x="870" y="449" width="210" height="64" rx="6"/><text class="t" text-anchor="middle" x="975" y="473" font-size="12">Poisson 평균 회귀</text><text class="tiny" text-anchor="middle" x="975" y="493">sklearn HistGradientBoostingRegressor</text><text class="tiny" text-anchor="middle" x="975" y="506">loss=poisson</text>
+<rect class="focal" x="1100" y="449" width="208" height="64" rx="6"/><text class="t" text-anchor="middle" x="1204" y="473" font-size="12">분위수 회귀 Q10·50·90</text><text class="tiny" text-anchor="middle" x="1204" y="493">sklearn HistGradientBoostingRegressor</text><text class="tiny" text-anchor="middle" x="1204" y="506">loss=quantile · quantile=0.1/0.5/0.9</text>
 <text class="s" x="732" y="546">학습 정답: 20~24·25~29·30~34·35~39세 인구 합계</text><text class="tiny" x="732" y="567">전체 인구와 별도로 학습해 타깃 연령 인원 범위를 산출합니다.</text>
 <!-- converge to validation -->
 <path class="line" d="M340 588 V610 H680 V625"/><path class="line" d="M1020 588 V610 H680"/>
 <rect class="softbox" x="28" y="625" width="542" height="57" rx="8"/><text class="tag" x="48" y="648">06 · TIME-AWARE EVALUATION</text><text class="s" x="48" y="669">과거 최대 22주 순차 검증 + 2026.09.14–20 최종 테스트</text>
-<rect class="focal" x="594" y="615" width="268" height="77" rx="9"/><text class="tag" text-anchor="middle" x="728" y="638">OUTPUT</text><text class="t" text-anchor="middle" x="728" y="662">후보별 시간대 인원 범위</text><text class="tiny" text-anchor="middle" x="728" y="680">하한 Q10 · 중앙 Q50 · 상한 Q90</text>
+<rect class="focal" x="594" y="615" width="268" height="77" rx="9"/><text class="tag" text-anchor="middle" x="728" y="638">OUTPUT</text><text class="t" text-anchor="middle" x="728" y="662">후보별 시간대 인원 범위</text><text class="tiny" text-anchor="middle" x="728" y="680">Q10 · Q50 · Q90 분위수별 모델 3개</text>
 <rect class="softbox" x="886" y="625" width="446" height="57" rx="8"/><text class="tag" x="906" y="648">07 · MODEL CHECK</text><text class="s" x="906" y="669">롤링 검증은 분위수 모델 우세, 최종 주는 기준선 우세</text>
 </svg>
-<footer class="foot"><span><strong>해석할 때:</strong> 생활인구는 거리 통행량의 완전한 측정치가 아닌 통신자료 기반 체류인구 추정치입니다.</span><span><strong>다음 고도화:</strong> 실제 주소·대학/상권·주변 행사·대기질·팝업 입장/매출 자료 결합</span></footer>
+<footer class="foot"><span><strong>모델 입력 전처리:</strong> 권역은 OneHotEncoder, 숫자 결측은 중앙값 대체. 생활인구는 팝업 입장객이 아닌 체류인구 추정치입니다.</span><span><strong>설정:</strong> scikit-learn · 120회 반복 · 잎 노드 최대 15 · L2=1 · random_state=42</span></footer>
 </section></main></body></html>
+
+
