@@ -1,0 +1,665 @@
+{
+  "status": "evaluated",
+  "as_of_kst": "2026-10-01",
+  "source_file": "C:\\Users\\Administrator\\Documents\\Agentic AI Fundamental\\1주차\\yeeun\\day12\\projects\\seoul-popup-site-2026-09-30-v01\\outputs\\modeling\\three_year_run\\_age20_39_history.csv",
+  "valid_rows": 131520,
+  "data_quality": {
+    "input_rows": 131520,
+    "valid_rows": 131520,
+    "removed_rows": 0
+  },
+  "venue_count": 5,
+  "min_training_rows_for_ml": 200,
+  "min_training_weeks_for_ml": 8,
+  "metrics": {
+    "same-site weekday/hour median baseline": {
+      "mae": 1411.514207142857,
+      "wape": 0.0493423590885605
+    },
+    "Poisson gradient boosting": {
+      "mae": 1466.6692459832338,
+      "wape": 0.0512704160066089
+    },
+    "Quantile regression median": {
+      "mae": 1484.5982397641753,
+      "wape": 0.051897160565579,
+      "coverage_80": 0.8333333333333334,
+      "mean_width": 5828.899357791217
+    }
+  },
+  "holiday_metrics": {
+    "status": "available",
+    "regular": {
+      "baseline": {
+        "mae": 1411.514207142857,
+        "wape": 0.0493423590885605
+      },
+      "poisson": {
+        "mae": 1466.6692459832338,
+        "wape": 0.0512704160066089
+      },
+      "quantile_median_and_range": {
+        "mae": 1484.5982397641753,
+        "wape": 0.051897160565579,
+        "coverage_80": 0.8333333333333334,
+        "mean_width": 5828.899357791217
+      }
+    }
+  },
+  "holdout_week": "2026-09-14 ~ 2026-09-20",
+  "training_rows": 130680,
+  "training_weeks": 155,
+  "rolling_validation": {
+    "folds": [
+      {
+        "week": "2023-09-25",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": false,
+        "mae": 8031.398797619048,
+        "wape": 0.3320730355904189
+      },
+      {
+        "week": "2023-11-13",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": false,
+        "mae": 633.4575297619049,
+        "wape": 0.0217194420252367
+      },
+      {
+        "week": "2023-12-25",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 3420.2428511904764,
+        "wape": 0.12054127759044511
+      },
+      {
+        "week": "2023-12-25",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 2818.0848761180305,
+        "wape": 0.0993191320339553
+      },
+      {
+        "week": "2023-12-25",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 2816.0019265613264,
+        "wape": 0.09924572163251723,
+        "coverage_80": 0.5761904761904761,
+        "mean_width": 7740.093300871722
+      },
+      {
+        "week": "2024-02-12",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 2330.7959523809527,
+        "wape": 0.08128158144857918
+      },
+      {
+        "week": "2024-02-12",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 1450.2403160051176,
+        "wape": 0.0505740651578568
+      },
+      {
+        "week": "2024-02-12",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 1527.67957593316,
+        "wape": 0.05327459563832595,
+        "coverage_80": 0.7166666666666667,
+        "mean_width": 7820.666520210028
+      },
+      {
+        "week": "2024-04-01",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1949.812023809524,
+        "wape": 0.06436338637312088
+      },
+      {
+        "week": "2024-04-01",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 2108.634631269921,
+        "wape": 0.06960612809587818
+      },
+      {
+        "week": "2024-04-01",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 2058.747386820611,
+        "wape": 0.06795934781635779,
+        "coverage_80": 0.6321428571428571,
+        "mean_width": 6523.631247960142
+      },
+      {
+        "week": "2024-05-13",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1930.7116845238093,
+        "wape": 0.06793818849276308
+      },
+      {
+        "week": "2024-05-13",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 1291.5569888130638,
+        "wape": 0.04544751184678779
+      },
+      {
+        "week": "2024-05-13",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 1329.158798854436,
+        "wape": 0.046770650292956094,
+        "coverage_80": 0.8642857142857143,
+        "mean_width": 8087.823957832812
+      },
+      {
+        "week": "2024-07-01",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1427.4473928571429,
+        "wape": 0.0493676843834624
+      },
+      {
+        "week": "2024-07-01",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1676.7924400433535,
+        "wape": 0.05799118088054158
+      },
+      {
+        "week": "2024-07-01",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1709.923009958324,
+        "wape": 0.05913698809360655,
+        "coverage_80": 0.6285714285714286,
+        "mean_width": 6870.0714255496205
+      },
+      {
+        "week": "2024-08-19",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 828.6039053571428,
+        "wape": 0.028352858272684387
+      },
+      {
+        "week": "2024-08-19",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1074.7911375224296,
+        "wape": 0.03677680083076136
+      },
+      {
+        "week": "2024-08-19",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 999.5905671366377,
+        "wape": 0.03420361586217931,
+        "coverage_80": 0.8107142857142857,
+        "mean_width": 6960.30638178106
+      },
+      {
+        "week": "2024-10-07",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 2139.157104166667,
+        "wape": 0.0748639579221996
+      },
+      {
+        "week": "2024-10-07",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 1782.6174994096702,
+        "wape": 0.06238616191734579
+      },
+      {
+        "week": "2024-10-07",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 1808.2213964732805,
+        "wape": 0.06328222002765516,
+        "coverage_80": 0.7047619047619048,
+        "mean_width": 7043.608343092268
+      },
+      {
+        "week": "2024-11-18",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1200.8772148809524,
+        "wape": 0.040388427046542726
+      },
+      {
+        "week": "2024-11-18",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1413.283798705913,
+        "wape": 0.04753217805515039
+      },
+      {
+        "week": "2024-11-18",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1463.2299242295103,
+        "wape": 0.04921198796574751,
+        "coverage_80": 0.7119047619047619,
+        "mean_width": 6445.2678297038665
+      },
+      {
+        "week": "2025-01-06",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1125.0048553571426,
+        "wape": 0.03888528178364471
+      },
+      {
+        "week": "2025-01-06",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1329.586066380893,
+        "wape": 0.04595653841015267
+      },
+      {
+        "week": "2025-01-06",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1338.4197638054716,
+        "wape": 0.04626187114886085,
+        "coverage_80": 0.7392857142857143,
+        "mean_width": 6294.387460625977
+      },
+      {
+        "week": "2025-02-24",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1624.5759720238098,
+        "wape": 0.05312112795963445
+      },
+      {
+        "week": "2025-02-24",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 2245.0534915337853,
+        "wape": 0.07340978560173021
+      },
+      {
+        "week": "2025-02-24",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 1821.0897711633543,
+        "wape": 0.05954682601850779,
+        "coverage_80": 0.7738095238095238,
+        "mean_width": 7020.008073233518
+      },
+      {
+        "week": "2025-04-07",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 2512.0840767857144,
+        "wape": 0.08250774270997231
+      },
+      {
+        "week": "2025-04-07",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 2511.0477795471165,
+        "wape": 0.0824737062114636
+      },
+      {
+        "week": "2025-04-07",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 2500.408524094921,
+        "wape": 0.08212426689150318,
+        "coverage_80": 0.5952380952380952,
+        "mean_width": 7479.845283740419
+      },
+      {
+        "week": "2025-05-26",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 991.5894208333332,
+        "wape": 0.03364739069842885
+      },
+      {
+        "week": "2025-05-26",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1242.012139531426,
+        "wape": 0.042144930989566884
+      },
+      {
+        "week": "2025-05-26",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1110.4727679620903,
+        "wape": 0.037681433765383444,
+        "coverage_80": 0.8321428571428572,
+        "mean_width": 6065.666862071137
+      },
+      {
+        "week": "2025-07-14",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1199.2661279761905,
+        "wape": 0.040872738703397624
+      },
+      {
+        "week": "2025-07-14",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1364.178706921633,
+        "wape": 0.046493199909548116
+      },
+      {
+        "week": "2025-07-14",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1244.079544655361,
+        "wape": 0.042400045301663,
+        "coverage_80": 0.8238095238095238,
+        "mean_width": 5587.3394160429725
+      },
+      {
+        "week": "2025-08-25",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1085.551304761905,
+        "wape": 0.036570006136614375
+      },
+      {
+        "week": "2025-08-25",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1173.9519353766964,
+        "wape": 0.039548042817038755
+      },
+      {
+        "week": "2025-08-25",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1162.3590965286692,
+        "wape": 0.03915750375550069,
+        "coverage_80": 0.8642857142857143,
+        "mean_width": 5813.070060589463
+      },
+      {
+        "week": "2025-10-13",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1495.6003940476191,
+        "wape": 0.052343576478457415
+      },
+      {
+        "week": "2025-10-13",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1513.8380559060622,
+        "wape": 0.052981864922399396
+      },
+      {
+        "week": "2025-10-13",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1448.52101697066,
+        "wape": 0.05069587500392338,
+        "coverage_80": 0.7535714285714286,
+        "mean_width": 6410.585001980331
+      },
+      {
+        "week": "2025-12-01",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1778.0376321428575,
+        "wape": 0.061860392673717866
+      },
+      {
+        "week": "2025-12-01",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 2063.395214188253,
+        "wape": 0.07178837831285001
+      },
+      {
+        "week": "2025-12-01",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1969.3175980241076,
+        "wape": 0.06851528770300304,
+        "coverage_80": 0.6583333333333333,
+        "mean_width": 6009.962897267748
+      },
+      {
+        "week": "2026-01-19",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1209.7154327380954,
+        "wape": 0.0416762688112196
+      },
+      {
+        "week": "2026-01-19",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1244.00684849636,
+        "wape": 0.04285765264942028
+      },
+      {
+        "week": "2026-01-19",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1260.9564609634767,
+        "wape": 0.04344158882672992,
+        "coverage_80": 0.8595238095238096,
+        "mean_width": 5907.34761457262
+      },
+      {
+        "week": "2026-03-02",
+        "type": "holiday_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 2508.11487797619,
+        "wape": 0.09059441632748069
+      },
+      {
+        "week": "2026-03-02",
+        "type": "holiday_week",
+        "model": "poisson",
+        "mae": 1857.535938719701,
+        "wape": 0.06709516603618178
+      },
+      {
+        "week": "2026-03-02",
+        "type": "holiday_week",
+        "model": "quantile_regression",
+        "mae": 1838.5582744842445,
+        "wape": 0.06640968291506677,
+        "coverage_80": 0.7011904761904761,
+        "mean_width": 6587.235513731378
+      },
+      {
+        "week": "2026-04-20",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1376.8951880952382,
+        "wape": 0.04750236607353319
+      },
+      {
+        "week": "2026-04-20",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1673.704326127528,
+        "wape": 0.057742169691616906
+      },
+      {
+        "week": "2026-04-20",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1607.190111221428,
+        "wape": 0.05544745429651548,
+        "coverage_80": 0.780952380952381,
+        "mean_width": 6354.338409001444
+      },
+      {
+        "week": "2026-06-08",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1612.0890220238095,
+        "wape": 0.056836172011520115
+      },
+      {
+        "week": "2026-06-08",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1886.2226805726814,
+        "wape": 0.06650108974160368
+      },
+      {
+        "week": "2026-06-08",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1776.5544721774547,
+        "wape": 0.06263460279740174,
+        "coverage_80": 0.7107142857142857,
+        "mean_width": 5790.613222855806
+      },
+      {
+        "week": "2026-07-20",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1385.3100255952384,
+        "wape": 0.048482440539960675
+      },
+      {
+        "week": "2026-07-20",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1435.7228461222621,
+        "wape": 0.05024676515213761
+      },
+      {
+        "week": "2026-07-20",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1484.785280130226,
+        "wape": 0.05196382956052864,
+        "coverage_80": 0.7833333333333333,
+        "mean_width": 5840.357775365174
+      },
+      {
+        "week": "2026-09-07",
+        "type": "regular_week",
+        "model": "baseline",
+        "comparison_eligible": true,
+        "mae": 1610.549420238095,
+        "wape": 0.05650705255206688
+      },
+      {
+        "week": "2026-09-07",
+        "type": "regular_week",
+        "model": "poisson",
+        "mae": 1659.9662710305486,
+        "wape": 0.0582408711791749
+      },
+      {
+        "week": "2026-09-07",
+        "type": "regular_week",
+        "model": "quantile_regression",
+        "mae": 1608.1052485391172,
+        "wape": 0.05642129738249251,
+        "coverage_80": 0.725,
+        "mean_width": 5633.246371316562
+      }
+    ],
+    "summary": {
+      "baseline": {
+        "fold_count": 22,
+        "mean_mae": 1670.0923581709956,
+        "mean_wape": 0.057659287954065726
+      },
+      "poisson": {
+        "fold_count": 22,
+        "mean_mae": 1673.4647267428386,
+        "mean_wape": 0.057596060020143725
+      },
+      "quantile_regression": {
+        "fold_count": 22,
+        "mean_mae": 1631.0622962130851,
+        "mean_wape": 0.056172122395292096,
+        "mean_coverage_80": 0.7384740259740261,
+        "mean_interval_width": 6558.430589518003
+      }
+    },
+    "holiday_vs_regular": {
+      "holiday_week": {
+        "baseline": {
+          "fold_count": 6,
+          "mean_mae": 2325.599740376984,
+          "mean_wape": 0.08139009162351703
+        },
+        "poisson": {
+          "fold_count": 6,
+          "mean_mae": 1907.5148517665612,
+          "mean_wape": 0.06637197043230962
+        },
+        "quantile_regression": {
+          "fold_count": 6,
+          "mean_mae": 1856.784957244967,
+          "mean_wape": 0.06475494942083816,
+          "mean_coverage_80": 0.7228174603174603,
+          "mean_interval_width": 7383.239284828621
+        }
+      },
+      "regular_week": {
+        "baseline": {
+          "fold_count": 16,
+          "mean_mae": 1424.27708984375,
+          "mean_wape": 0.048760236578021504
+        },
+        "poisson": {
+          "fold_count": 16,
+          "mean_mae": 1585.6959298589422,
+          "mean_wape": 0.054305093615581515
+        },
+        "quantile_regression": {
+          "fold_count": 16,
+          "mean_mae": 1546.416298326129,
+          "mean_wape": 0.052953562260712315,
+          "mean_coverage_80": 0.7443452380952381,
+          "mean_interval_width": 6249.127328776522
+        }
+      },
+      "holiday_unknown": {}
+    },
+    "lowest_rolling_mae_model": "quantile_regression",
+    "quantile_interval_margin_80": 173.6767845892391,
+    "quantile_calibration_rows": 18480,
+    "note": "과거 완전 주에서 최대 24개를 시간순으로 균등 추출한 모델 선택 참고값이며, 가장 최근 완전 주 테스트는 선택/조정에 사용하지 않습니다."
+  },
+  "message": "가장 최근의 완료 주를 학습에서 제외해 평가했습니다. 모델 선택은 마지막 테스트 성능이 아니라 그보다 과거의 롤링 검증 결과로 해야 합니다."
+}

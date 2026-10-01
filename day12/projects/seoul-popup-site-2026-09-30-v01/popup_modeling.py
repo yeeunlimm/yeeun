@@ -27,6 +27,8 @@ OPTIONAL_NUMERIC = [
     "forecast_wind_speed_mps",
     "forecast_lead_hours",
     "holiday",
+    "holiday_eve",
+    "temporary_holiday",
     "nearby_event_count",
     "nearby_university_count",
     "commercial_area_index",
@@ -35,6 +37,7 @@ OPTIONAL_NUMERIC = [
 CAT_FEATURES = ["venue_id", "spatial_unit"]
 MIN_MODEL_ROWS = 200
 MIN_MODEL_WEEKS = 8
+MAX_ROLLING_FOLDS = 24
 
 
 def _local_today() -> date:
@@ -160,7 +163,7 @@ def _build_quantile_model(x: pd.DataFrame, y: pd.Series, quantile: float) -> Pip
                 ),
                 categorical,
             ),
-            ("numeric", SimpleImputer(strategy="median"), numeric),
+            ("numeric", SimpleImputer(strategy="median", keep_empty_features=True), numeric),
         ],
         remainder="drop",
         verbose_feature_names_out=False,
@@ -193,7 +196,7 @@ def _build_poisson_model(x: pd.DataFrame, y: pd.Series) -> Pipeline:
                 ),
                 categorical,
             ),
-            ("numeric", SimpleImputer(strategy="median"), numeric),
+            ("numeric", SimpleImputer(strategy="median", keep_empty_features=True), numeric),
         ],
         remainder="drop",
     )
@@ -287,6 +290,13 @@ def _rolling_cv(frame: pd.DataFrame, holdout_start: pd.Timestamp, min_rows: int,
     """Evaluate completed weeks chronologically, training only on earlier observations."""
     earlier = frame[frame["week_start"].lt(holdout_start)].copy()
     fold_starts = sorted(earlier["week_start"].unique())
+    complete_starts = [
+        start for start in fold_starts
+        if earlier.loc[earlier["week_start"].eq(start), TIME_COL].dt.normalize().nunique() == 7
+    ]
+    if len(complete_starts) > MAX_ROLLING_FOLDS:
+        sampled = np.linspace(0, len(complete_starts) - 1, MAX_ROLLING_FOLDS).round().astype(int)
+        fold_starts = [complete_starts[index] for index in sampled]
     fold_results: list[dict[str, Any]] = []
     interval_miss_distances: list[float] = []
     for raw_start in fold_starts:
@@ -372,7 +382,7 @@ def _rolling_cv(frame: pd.DataFrame, holdout_start: pd.Timestamp, min_rows: int,
         "lowest_rolling_mae_model": min(candidates, key=candidates.get) if candidates else None,
         "quantile_interval_margin_80": margin,
         "quantile_calibration_rows": len(interval_miss_distances),
-        "note": "모델 선택 참고값이며, 가장 최근 완전 주 테스트는 선택/조정에 사용하지 않습니다.",
+        "note": f"과거 완전 주에서 최대 {MAX_ROLLING_FOLDS}개를 시간순으로 균등 추출한 모델 선택 참고값이며, 가장 최근 완전 주 테스트는 선택/조정에 사용하지 않습니다.",
     }
 
 
@@ -408,10 +418,10 @@ def _latest_complete_week(frame: pd.DataFrame, as_of: date) -> pd.Timestamp | No
 
 
 def _complete_week_count(frame: pd.DataFrame) -> int:
-    return sum(
+    return int(sum(
         rows[TIME_COL].dt.normalize().nunique() == 7 and rows[TARGET].notna().all()
         for _, rows in frame.groupby("week_start")
-    )
+    ))
 
 
 def _holiday_week(frame: pd.DataFrame) -> bool | None:

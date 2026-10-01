@@ -1,0 +1,117 @@
+{
+  "period_start": "2023-09-21T00:00:00",
+  "period_end": "2026-09-20T23:00:00",
+  "rows": 131520,
+  "areas": [
+    "Hongdae",
+    "Jamsil",
+    "Myeongdong",
+    "Seongsu",
+    "Yongsan-Ipark"
+  ],
+  "holdout_policy": "most recent complete week is excluded from its own training run",
+  "weather_source": "Open-Meteo historical forecast model archive",
+  "interpretation_limit": "Area living population is a proxy label, not popup entrants; calendar effects are observational comparisons, not causal claims.",
+  "models_refit_after_backtest": "After each untouched holdout evaluation, final artifacts are fit on all supplied history for future prediction.",
+  "included_features": [
+    "area proxy",
+    "weekday",
+    "hour",
+    "month and seasonal cycles",
+    "weekend",
+    "public holiday",
+    "holiday eve",
+    "temporary holiday",
+    "temperature",
+    "precipitation",
+    "wind"
+  ],
+  "not_included_yet": [
+    "specific venue address",
+    "university distance",
+    "commercial-area intensity",
+    "nearby popup/event records",
+    "air quality",
+    "actual popup entrants or sales"
+  ],
+  "backtests": {
+    "total": {
+      "holdout_week": "2026-09-14 ~ 2026-09-20",
+      "metrics": {
+        "same-site weekday/hour median baseline": {
+          "mae": 2078.76665,
+          "wape": 0.03085317018044467
+        },
+        "Poisson gradient boosting": {
+          "mae": 2569.2005255934755,
+          "wape": 0.03813221702581355
+        },
+        "Quantile regression median": {
+          "mae": 2279.3278926858716,
+          "wape": 0.033829911293829694,
+          "coverage_80": 0.9321428571428572,
+          "mean_width": 11423.705110473293
+        }
+      },
+      "rolling_validation": {
+        "baseline": {
+          "fold_count": 22,
+          "mean_mae": 3265.789871266234,
+          "mean_wape": 0.048280903148837456
+        },
+        "poisson": {
+          "fold_count": 22,
+          "mean_mae": 3188.9129721753416,
+          "mean_wape": 0.04702486556090024
+        },
+        "quantile_regression": {
+          "fold_count": 22,
+          "mean_mae": 3179.4336133798074,
+          "mean_wape": 0.046882002714312865,
+          "mean_coverage_80": 0.7548701298701299,
+          "mean_interval_width": 12361.359101303618
+        }
+      },
+      "rolling_best_model": "quantile_regression"
+    },
+    "age20_39": {
+      "holdout_week": "2026-09-14 ~ 2026-09-20",
+      "metrics": {
+        "same-site weekday/hour median baseline": {
+          "mae": 1411.514207142857,
+          "wape": 0.0493423590885605
+        },
+        "Poisson gradient boosting": {
+          "mae": 1466.6692459832338,
+          "wape": 0.0512704160066089
+        },
+        "Quantile regression median": {
+          "mae": 1484.5982397641753,
+          "wape": 0.051897160565579,
+          "coverage_80": 0.8333333333333334,
+          "mean_width": 5828.899357791217
+        }
+      },
+      "rolling_validation": {
+        "baseline": {
+          "fold_count": 22,
+          "mean_mae": 1670.0923581709956,
+          "mean_wape": 0.057659287954065726
+        },
+        "poisson": {
+          "fold_count": 22,
+          "mean_mae": 1673.4647267428386,
+          "mean_wape": 0.057596060020143725
+        },
+        "quantile_regression": {
+          "fold_count": 22,
+          "mean_mae": 1631.0622962130851,
+          "mean_wape": 0.056172122395292096,
+          "mean_coverage_80": 0.7384740259740261,
+          "mean_interval_width": 6558.430589518003
+        }
+      },
+      "rolling_best_model": "quantile_regression"
+    }
+  }
+}

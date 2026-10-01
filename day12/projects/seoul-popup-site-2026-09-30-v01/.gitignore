@@ -4,3 +4,4 @@
 __pycache__/
 *.py[cod]
 data/raw/
+data/processed/seoul_population_september.csv
