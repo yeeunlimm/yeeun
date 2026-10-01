@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "report.md"
-OUTPUT = ROOT / "seoul-popup-report-2026-09-30.html"
+OUTPUT = ROOT / "seoul-popup-report-2026-10-01.html"
 
 
 def inline(text: str) -> str:
